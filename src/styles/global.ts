@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     --text-title: #363F5F;
     --text-body: #969CB3;
     --input-background: #E7E9EE;
+    --border-color: #d7d7d7;
   }
   
   * {
