@@ -33,7 +33,6 @@ export function ModalNewTransaction(props: ModalNewTransactionProps) {
     }
 
     api.post('/transactions', data)
-
   }
 
   return (

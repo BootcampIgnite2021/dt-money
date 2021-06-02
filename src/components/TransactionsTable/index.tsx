@@ -3,16 +3,26 @@ import { api } from '../../services/api';
 
 import * as Styled from './styles'
 
+import {formatPrice} from '../../utils/formatPrice';
+import { formatDate } from '../../utils/formatDate';
+
+interface Trasanction {
+  id: number;
+  title: string;
+  amount: number;
+  type: string;
+  category: string;
+  createdAt: string;
+}
+
 export function TransactionsTable() {
-  const [transactions, setTransactions] = useState([]);
-  
-  useEffect(() => {      
-      api.get('/transactions')
-      .then(response => console.log(response.data))
+  const [transactions, setTransactions] = useState<Trasanction[]>([]);
+
+  useEffect(() => {
+    api.get('/transactions')
+      .then(response => setTransactions(response.data.transactions))
   }, [])
 
-  console.log('transactions', transactions);
-  
   return (
     <Styled.Container>
       <table>
@@ -26,19 +36,17 @@ export function TransactionsTable() {
         </thead>
 
         <tbody>
-          <tr>
-            <td>Desenvolvimento</td>
-            <td className="deposit">R$ 1200,00</td>
-            <td>Front end</td>
-            <td>20/03/2012</td>
-          </tr>
-
-          <tr>
-            <td>Aluguel</td>
-            <td className="withdraw">-R$ 1200,00</td>
-            <td>Front end</td>
-            <td>20/03/2012</td>
-          </tr>
+          {transactions.map((transaction) => (
+            <tr key={transaction.id}>
+              <td>{transaction.title}</td>
+              <td className={transaction.type}>
+                {transaction.type === 'withdraw' && '-'}{' '}
+                {formatPrice(transaction.amount)}
+              </td>
+              <td>{transaction.category}</td>
+              <td>{formatDate(transaction.createdAt)}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </Styled.Container>

@@ -10,6 +10,12 @@ createServer({
     transaction: Model, 
   },
 
+  seeds(server) {
+    server.db.loadData({
+      transactions: dataTransactions
+    })
+  },
+
   routes() {
     this.namespace = 'api';
 
