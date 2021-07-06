@@ -1,20 +1,46 @@
-import { FC, createContext, useContext } from 'react'
+import {
+  createContext,
+  useContext,
+  useCallback,
+  useState,
+} from 'react'
 
-const initialValue = {}
+import {
+  TransactionsContextData,
+  Trasanction,
+  TransactionsProviderProps,
+} from './props'
+
+import { api } from '../../services/api'
+
+const initialValue = {} as TransactionsContextData
 
 const TransactionsContext = createContext(initialValue)
 
-export const TransactionsProvider: FC = props => {
+export const TransactionsProvider = (props: TransactionsProviderProps) => {
   const { children } = props
 
+  const [transactions, setTransactions] = useState<Trasanction[]>([])
+
+  const getTransactions = useCallback(async () => {
+    try {
+      const response = await api.get('/transactions')
+
+      setTransactions(response.data.transactions)
+
+    } catch (error) {
+      throw new Error(error)
+    }
+  }, [])
+
   return (
-    <TransactionsContext.Provider value={{}}>
+    <TransactionsContext.Provider value={{ transactions, getTransactions }}>
       {children}
     </TransactionsContext.Provider>
   )
 }
 
-export function useTransactions(){
+export function useTransactions(): TransactionsContextData {
   const context = useContext(TransactionsContext)
 
   if (!context || context === initialValue) {
