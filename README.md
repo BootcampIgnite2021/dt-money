@@ -1,46 +1,106 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <img alt="Logo" src="https://user-images.githubusercontent.com/33940202/124685347-78a64780-dea7-11eb-9238-9ed0de261267.png" width="200px">
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">
+  Dt money
+</h3>
 
-## Available Scripts
+<p align="center">Dt money - Monitor your transactions easily and quickly!</p>
 
-In the project directory, you can run:
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/BootcampIgnite2021/dt-money?color=%5965E0">
 
-### `yarn start`
+  <a href="https://www.linkedin.com/in/franciscojunior10/" target="_blank" rel="noopener noreferrer">
+    <img alt="Made by" src="https://img.shields.io/badge/made%20by-franciscojunior10-%5965E0">
+  </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/BootcampIgnite2021/dt-money?color=%5965E0">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  <a href="https://github.com/BootcampIgnite2021/dt-money/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/BootcampIgnite2021/dt-money?color=%5965E0">
+  </a>
 
-### `yarn test`
+  <a href="https://github.com/BootcampIgnite2021/dt-money/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/BootcampIgnite2021/dt-money?color=%5965E0">
+  </a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  <img alt="GitHub" src="https://img.shields.io/github/license/BootcampIgnite2021/dt-money?color=%5965E0">
 
-### `yarn build`
+   <a href="https://github.com/BootcampIgnite2021/dt-money/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/BootcampIgnite2021/dt-money?color=%5965E0">
+  </a>
+</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="center">
+  <a href="#about-the-challenge-open_file_folder">About the challenge</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#getting-started-desktop_computer">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#how-to-contribute-thinking">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#license-memo">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#author-man_technologist">Author</a>
+</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="center">
+  <img alt="Gif" src="https://user-images.githubusercontent.com/33940202/124687329-0f283800-deab-11eb-8e5f-0a59f81ed132.gif" />
+</p>
 
-### `yarn eject`
+## About the challenge :open_file_folder::
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Dt money is an application to perform input and output transactions, in order to estimate the value of inputs, outputs and total available at the end of each transaction.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting started :desktop_computer::
+**Clone the project and access the folder**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+$ https://github.com/BootcampIgnite2021/dt-money.git && cd dt-money
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Follow the steps below**
 
-## Learn More
+```bash
+# Install the dependencies
+$ yarn
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Start the client
+$ yarn start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## How to contribute :thinking::
+
+**Make a fork of this repository**
+
+```bash
+# Fork using GitHub official command line
+# If you don't have the GitHub CLI, use the web site to do that.
+
+$ gh repo fork BootcampIgnite2021/dt-money
+```
+
+**Follow the steps below**
+
+```bash
+# Clone your fork
+$ git clone your-fork-url && cd dt-money
+
+# Create a branch with your feature
+$ git checkout -b my-feature
+
+# Make the commit with your changes
+$ git commit -m 'feat: My new feature'
+
+# Send the code to your remote branch
+$ git push origin my-feature
+```
+
+After your pull request is merged, you can delete your branch
+
+## License :memo::
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+# Author :man_technologist::
+
+Made with :heart: by **franciscojunior10** my :point_right: [Linkedin](https://www.linkedin.com/in/franciscojunior10/)
