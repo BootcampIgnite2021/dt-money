@@ -9,6 +9,7 @@ import {
   TransactionsContextData,
   Trasanction,
   TransactionsProviderProps,
+  NewTransaction
 } from './props'
 
 import { api } from '../../services/api'
@@ -33,8 +34,26 @@ export const TransactionsProvider = (props: TransactionsProviderProps) => {
     }
   }, [])
 
+  const addNewTransaction = useCallback(async (data: NewTransaction) => {
+    try {
+      const response = await api.post('/transactions', {
+        ...data,
+        createdAt: new Date()
+      })
+      const { transaction } = response.data
+
+      setTransactions([
+        ...transactions, 
+        transaction
+      ])
+
+    } catch (error) {
+      throw new Error(error)
+    }
+  }, [transactions])
+
   return (
-    <TransactionsContext.Provider value={{ transactions, getTransactions }}>
+    <TransactionsContext.Provider value={{ transactions, getTransactions, addNewTransaction }}>
       {children}
     </TransactionsContext.Provider>
   )

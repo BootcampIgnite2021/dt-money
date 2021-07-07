@@ -1,38 +1,44 @@
 import { useState, FormEvent } from 'react';
 import Modal from 'react-modal';
 
-import { api } from '../../services/api';
+
+import { useTransactions } from '../../hooks/transactions'
 
 import CloseImg from '../../assets/close.svg';
 import IncomeImg from '../../assets/income.svg';
 import OutcomeImg from '../../assets/outcome.svg';
 import * as Styled from './styles';
 
-interface ModalNewTransactionProps {
-  isNewTransactionModalOpen: boolean;
-  onCloseTransactionModal(): void;
-}
-
-export type TransactionType = 'deposit' | 'withdraw';
+import { ModalNewTransactionProps, TransactionType } from './props'
 
 export function ModalNewTransaction(props: ModalNewTransactionProps) {
   const { onCloseTransactionModal, isNewTransactionModalOpen } = props;
+  const { addNewTransaction } = useTransactions()
+
   const [type, setType] = useState<TransactionType>('deposit');
-  const [tilte, setTitle] = useState('');
-  const [value, setValue] = useState(0);
+  const [title, setTitle] = useState('');
+  const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState('');
 
-  function  handleCreateNewTransaction(event: FormEvent) {
+  async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault()
 
     const data = {
       type,
-      tilte,
-      value,
+      title,
+      amount,
       category
     }
 
-    api.post('/transactions', data)
+    await addNewTransaction(data)
+    
+    setTitle('')
+    setCategory('')
+    setAmount(0)
+    setCategory('')
+    setType('deposit')
+
+    onCloseTransactionModal()
   }
 
   return (
@@ -57,12 +63,14 @@ export function ModalNewTransaction(props: ModalNewTransactionProps) {
         <input
           type="text"
           placeholder="Título"
+          value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
         <input
           type="number"
           placeholder="Valor (R$)"
-          onChange={(event) => setValue(Number(event.target.value))}
+          value={amount}
+          onChange={(event) => setAmount(Number(event.target.value))}
         />
 
         <Styled.TransactionTypeContainer>
@@ -90,6 +98,7 @@ export function ModalNewTransaction(props: ModalNewTransactionProps) {
         <input
           type="text"
           placeholder="Categoria"
+          value={category}
           onChange={(event) => setCategory(event.target.value)}
         />
 
