@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import { ModalNewTransaction } from './components/ModalNewTransaction';
 import { GlobalStyle } from './styles/global';
 
-import { TransactionsProvider } from './hooks/transactions'
+import { TransactionsProvider } from './hooks/useTransactions'
 
 Modal.setAppElement('#root');
 

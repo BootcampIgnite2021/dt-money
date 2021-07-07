@@ -3,7 +3,7 @@ import * as Styled from './styles'
 import {formatPrice} from '../../utils/formatPrice';
 import { formatDate } from '../../utils/formatDate';
 
-import { useTransactions } from '../../hooks/transactions'
+import { useTransactions } from '../../hooks/useTransactions'
 import { useEffect } from 'react';
 
 export function TransactionsTable() {

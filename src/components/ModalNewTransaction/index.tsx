@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react';
 import Modal from 'react-modal';
 
 
-import { useTransactions } from '../../hooks/transactions'
+import { useTransactions } from '../../hooks/useTransactions'
 
 import CloseImg from '../../assets/close.svg';
 import IncomeImg from '../../assets/income.svg';

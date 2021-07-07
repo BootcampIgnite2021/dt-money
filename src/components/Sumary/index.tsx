@@ -2,9 +2,31 @@ import IncomeImg from '../../assets/income.svg'
 import OutcomeImg from '../../assets/outcome.svg'
 import TotalImg from '../../assets/total.svg'
 
+import { useTransactions }  from '../../hooks/useTransactions'
+
+import { formatPrice } from '../../utils/formatPrice'
+
 import * as Styled from './styles'
 
 export function Sumary() {
+  const { transactions } = useTransactions()
+
+  const sumary = transactions.reduce((acc, transaction) => {
+    if (transaction.type === 'deposit') {
+      acc.deposits += transaction.amount
+      acc.total += transaction.amount
+    } else {
+      acc.withdraws += transaction.amount
+      acc.total -= transaction.amount
+    }
+
+    return acc
+  }, {
+    deposits: 0,
+    withdraws: 0,
+    total: 0,
+  })
+
   return (
     <Styled.Container>
       <div>
@@ -12,7 +34,7 @@ export function Sumary() {
           <p>Entradas</p>
           <img src={IncomeImg} alt="Entradas" />
         </header>
-        <strong>R$ 17.400,00</strong>
+        <strong>{formatPrice(sumary.deposits)}</strong>
       </div>
 
       <div>
@@ -20,7 +42,7 @@ export function Sumary() {
           <p>Saídas</p>
           <img src={OutcomeImg} alt="Saídas" />
         </header>
-        <strong>-R$ 17.400,00</strong>
+        <strong>-{formatPrice(sumary.withdraws)}</strong>
       </div>
 
       <div className="background">
@@ -28,7 +50,7 @@ export function Sumary() {
           <p>Total</p>
           <img src={TotalImg} alt="Total" />
         </header>
-        <strong>R$ 17.400,00</strong>
+        <strong>{formatPrice(sumary.total)}</strong>
       </div>
     </Styled.Container>
   )

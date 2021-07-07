@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createServer, Model } from 'miragejs';
 import { App } from './App';
 
-import { dataTransactions } from './data/dataTransactions';
+// import { dataTransactions } from './data/dataTransactions';
 
 createServer({
   models: {
@@ -12,7 +12,7 @@ createServer({
 
   seeds(server) {
     server.db.loadData({
-      transactions: dataTransactions
+      transactions: []
     })
   },
 
